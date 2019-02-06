@@ -4,7 +4,8 @@ import { applyMiddleware, createStore } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
 
-import rootReducer from './rootReducer'
+import rootReducer from './redux/rootReducer'
+import PokemonList from './pokemonList'
 
 const middleware = [thunk];
 const store = createStore(
@@ -13,10 +14,10 @@ const store = createStore(
   composeWithDevTools(applyMiddleware(...middleware))
 );
 
-const App = props => {
+const App = () => {
   return (
     <Provider store={store}>
-      Hello World
+      <PokemonList />
     </Provider>
   )
 }
