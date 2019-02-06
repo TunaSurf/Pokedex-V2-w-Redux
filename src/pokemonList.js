@@ -15,8 +15,8 @@ const PokemonList = ({ getAllPokemon, pokemon, pokemonLoaded }) => {
 
   return pokemonLoaded ? (
     <ul>
-      {pokemon.map(pokemon => (
-        <li key={pokemon.name}>{pokemon.name}</li>
+      {pokemon.map((pokemon, i) => (
+        <li key={pokemon.name}>{pokemon.name} #{i + 1}</li>
       ))}
     </ul>
   ) : (
