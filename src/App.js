@@ -7,6 +7,9 @@ import thunk from 'redux-thunk'
 import rootReducer from './redux/rootReducer'
 import PokemonList from './pokemonList'
 
+// Array set for middleware so additional middlewares can be added
+// easily. applyMiddleware does not accept an array, so the items
+// within must be spread.
 const middleware = [thunk];
 const store = createStore(
   rootReducer,

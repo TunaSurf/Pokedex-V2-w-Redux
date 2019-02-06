@@ -20,6 +20,8 @@ export default function (state = initialState, action) {
   }
 }
 
+// Fetch's a list of pokemon from PokeAPI and dispatches the results in
+// the form of an array
 export function getAllPokemon() {
   return async function (dispatch) {
     const res = await fetch('https://pokeapi.co/api/v2/pokemon');
