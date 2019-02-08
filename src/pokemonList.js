@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import { Link } from "react-router-dom";
 
 import { getAllPokemon } from "./redux/modules/getPokemon";
 
@@ -17,7 +18,9 @@ function PokemonList({ getAllPokemon, pokemon, pokemonLoaded }) {
     <ul>
       {pokemon.map((pokemon, i) => (
         <li key={pokemon.name}>
-          {pokemon.name} #{i + 1}
+          <Link to={`/${pokemon.name}`}>
+            {pokemon.name} #{i + 1}
+          </Link>
         </li>
       ))}
     </ul>
