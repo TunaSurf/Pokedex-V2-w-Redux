@@ -4,7 +4,7 @@ import { bindActionCreators } from "redux";
 
 import { getAllPokemon } from "./redux/modules/getPokemon";
 
-const PokemonList = ({ getAllPokemon, pokemon, pokemonLoaded }) => {
+function PokemonList({ getAllPokemon, pokemon, pokemonLoaded }) {
   // This can be optimized. Instead of an empty array telling useEffect to
   // only run once at mount and unmount, pokemonLoadedAt can be utilized
   // somehow to have the effect run whenever a certain amount of time has
@@ -26,7 +26,7 @@ const PokemonList = ({ getAllPokemon, pokemon, pokemonLoaded }) => {
     // skeleton list elements will be implemented.
     <h1>Loading</h1>
   );
-};
+}
 
 const mapStateToProps = state => ({
   pokemon: state.getPokemon.pokemon,
