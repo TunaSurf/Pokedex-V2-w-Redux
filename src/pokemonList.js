@@ -5,13 +5,21 @@ import { Link } from "react-router-dom";
 
 import { getAllPokemon } from "./redux/modules/getPokemon";
 
-function PokemonList({ getAllPokemon, pokemon, pokemonLoaded }) {
+function PokemonList({
+  getAllPokemon,
+  pokemon,
+  pokemonLoaded,
+  pokemonLoadedAt
+}) {
   // This can be optimized. Instead of an empty array telling useEffect to
   // only run once at mount and unmount, pokemonLoadedAt can be utilized
   // somehow to have the effect run whenever a certain amount of time has
   // passed. **TODO**
   useEffect(() => {
-    getAllPokemon();
+    const time = 60 * 1000; //one hour
+    if (!pokemonLoaded || new Date() - new Date(pokemonLoadedAt) > time) {
+      getAllPokemon();
+    }
   }, []);
 
   return pokemonLoaded ? (
