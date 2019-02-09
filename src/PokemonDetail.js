@@ -1,7 +1,14 @@
 import React from "react";
+import { withRouter } from "react-router";
 
-function PokemonDetail() {
-  return <div>Pokemon Detail</div>;
+function PokemonDetail({ match }) {
+  console.log(match);
+  return (
+    <div>
+      <h1>{match.params.pokemon}</h1>
+      Pokemon Detail
+    </div>
+  );
 }
 
-export default PokemonDetail;
+export default withRouter(PokemonDetail);

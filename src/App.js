@@ -8,12 +8,15 @@ import PokemonDetail from "./PokemonDetail";
 
 function App() {
   return (
-    <Router>
-      <Provider store={store}>
-        <Route exact path="/" component={PokemonList} />
-        <Route exact path="/:pokemon" component={PokemonDetail} />
-      </Provider>
-    </Router>
+    <Provider store={store}>
+      <h1>Pokedex</h1>
+      <Router>
+        <>
+          <Route exact path="/" component={PokemonList} />
+          <Route path="/:pokemon" component={PokemonDetail} />
+        </>
+      </Router>
+    </Provider>
   );
 }
 
